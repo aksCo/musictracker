@@ -21,7 +21,7 @@ class UpdateInfo extends Component {
     axios
       .get('http://localhost:8082/api/songs/'+this.props.match.params.id)
       .then(res => {
-        // this.setState({...this.state, book: res.data})
+        // this.setState({...this.state, song: res.data})
         this.setState({
           title: res.data.title,
           album: res.data.album,

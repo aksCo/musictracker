@@ -28,5 +28,4 @@ const SongSchema = new mongoose.Schema({
   }
 });
 
-// eslint-disable-next-line no-undef
-module.exports = song = mongoose.model('song', SongSchema);
+module.exports = Song = mongoose.model('song', SongSchema);

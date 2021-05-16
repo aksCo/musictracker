@@ -1,60 +1,59 @@
-
 const express = require('express');
 const router = express.Router();
 
-// Load entry model
-const song = require('../../models/entry');
+// Load song model
+const Song = require('../../models/Song');
 
-// @route GET api/entries/test
-// @description tests entries route
+// @route GET api/songs/test
+// @description tests songs route
 // @access Public
-router.get('/test', (req, res) => res.send('entry route testing!'));
+router.get('/test', (req, res) => res.send('song route testing!'));
 
-// @route GET api/entries
-// @description Get all entries
+// @route GET api/songs
+// @description Get all songs
 // @access Public
 router.get('/', (req, res) => {
-    song.find()
+    Song.find()
         .then(songs => res.json(songs))
-        .catch(err => res.status(404).json({ noentriesfound: 'No entries found' }));
+        .catch(err => res.status(404).json({ nosongsfound: 'No songs found' }));
 });
 
-// @route GET api/entries/:id
-// @description Get single entry by id
+// @route GET api/songs/:id
+// @description Get song by id
 // @access Public
 router.get('/:id', (req, res) => {
-    song.findById(req.params.id)
+    Song.findById(req.params.id)
         .then(song => res.json(song))
         .catch(err => res.status(404).json({ nosongfound: 'No Song Found' }));
 });
 
-// @route GET api/entries
-// @description add/save entry
+// @route GET api/songs
+// @description add/save song
 // @access Public
 router.post('/', (req, res) => {
-    song.create(req.body)
-        .then(song => res.json({ msg: 'entry added successfully' }))
-        .catch(err => res.status(400).json({ error: 'Unable to add this entry' }));
+    Song.create(req.body)
+        .then(song => res.json({ msg: 'song added successfully' }))
+        .catch(err => res.status(400).json({ error: 'Unable to add this song' }));
 });
 
-// @route GET api/entries/:id
-// @description Update entry
+// @route GET api/songs/:id
+// @description Update song
 // @access Public
 router.put('/:id', (req, res) => {
-    song.findByIdAndUpdate(req.params.id, req.body)
+    Song.findByIdAndUpdate(req.params.id, req.body)
         .then(song => res.json({ msg: 'Updated successfully' }))
         .catch(err =>
             res.status(400).json({ error: 'Unable to update the Database' })
         );
 });
 
-// @route GET api/entries/:id
-// @description Delete entry by id
+// @route GET api/songs/:id
+// @description Delete song by id
 // @access Public
 router.delete('/:id', (req, res) => {
-    song.findByIdAndRemove(req.params.id, req.body)
-        .then(entry => res.json({ mgs: 'entry entry deleted successfully' }))
-        .catch(err => res.status(404).json({ error: 'No such a entry' }));
+    Song.findByIdAndRemove(req.params.id, req.body)
+        .then(song => res.json({ mgs: 'song song deleted successfully' }))
+        .catch(err => res.status(404).json({ error: 'No such a song' }));
 });
 
 module.exports = router;

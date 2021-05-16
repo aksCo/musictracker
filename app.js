@@ -1,7 +1,12 @@
 const express = require('express');
 const connectDB = require('./config/db');
-var cors = require ('cors')
+var cors = require ('cors');
+
+// routes
+const songs = require('./routes/api/songs');
 const app = express();
+
+//connect database
 connectDB();
 
 //cors
@@ -12,7 +17,6 @@ app.use(express.json({ extended: false }));
 app.get('/', (req, res) => res.send('Hello world!'));
 
 //use Routes
-// eslint-disable-next-line no-undef
 app.use('/api/songs', songs);
 const port = process.env.PORT || 8082;
 

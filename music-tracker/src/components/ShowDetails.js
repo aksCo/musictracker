@@ -1,3 +1,6 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import '../App.css';
 import axios from 'axios';
 
 class showDetails extends Component {
@@ -53,8 +56,8 @@ class showDetails extends Component {
           </tr>
           <tr>
             <th scope="row">3</th>
-            <td>Genre</td>
-            <td>{ song.genre }</td>
+            <td>Album</td>
+            <td>{ song.album}</td>
           </tr>
           <tr>
             <th scope="row">4</th>
@@ -68,8 +71,8 @@ class showDetails extends Component {
           </tr>
           <tr>
             <th scope="row">6</th>
-            <td>Album</td>
-            <td>{ song.album }</td>
+            <td>Genre</td>
+            <td>{ song.genre }</td>
           </tr>
         </tbody>
       </table>
@@ -104,7 +107,7 @@ class showDetails extends Component {
             </div>
 
             <div className="col-md-6">
-              <Link to={`/edit-book/${song._id}`} className="btn btn-outline-info btn-lg btn-block">
+              <Link to={`/edit-song/${song._id}`} className="btn btn-outline-info btn-lg btn-block">
                     Edit Song
               </Link>
               <br />
