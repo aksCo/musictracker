@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Load song model
-const Song = require('../../models/Song');
+const Song = require('../../models/song');
 
 // @route GET api/songs/test
 // @description tests songs route
