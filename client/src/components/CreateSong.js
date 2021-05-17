@@ -34,7 +34,7 @@ class CreateSong extends Component {
     };
 
     axios
-      .post('http://localhost:8082/api/songs', data)
+      .post('https://musicaks.herokuapp.com/api/songs', data)
       .then(res => {
         this.setState({
           title: '',

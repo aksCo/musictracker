@@ -14,7 +14,7 @@ class ShowList extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/songs')
+      .get('https://musicaks.herokuapp.com/api/songs')
       .then(res => {
         this.setState({
           songs: res.data

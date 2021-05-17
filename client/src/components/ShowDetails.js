@@ -14,7 +14,7 @@ class showDetails extends Component {
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('http://localhost:8082/api/songs/'+this.props.match.params.id)
+      .get('https://musicaks.herokuapp.com/api/songs/'+this.props.match.params.id)
       .then(res => {
         // console.log("Print-showDetails-API-response: " + res.data);
         this.setState({
@@ -28,7 +28,7 @@ class showDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('http://localhost:8082/api/songs/'+id)
+      .delete('https://musicaks.herokuapp.com/api/songs/'+id)
       .then(res => {
         this.props.history.push("/");
       })
